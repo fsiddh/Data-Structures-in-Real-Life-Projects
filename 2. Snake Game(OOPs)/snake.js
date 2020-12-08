@@ -1,6 +1,6 @@
 function init(){
     canvas = document.getElementById('mycanvas');
-    W = H = canvas.width = canvas.height = 900;
+    W = H = canvas.width = canvas.height = 1000;
     pen = canvas.getContext('2d');
     cell_size = 66;
     food = getrandomfood();

@@ -2,7 +2,7 @@ function init(){
     canvas = document.getElementById('mycanvas');
     W = H = canvas.width = canvas.height = 900;
     pen = canvas.getContext('2d');
-    cell_size = 50;
+    cell_size = 67;
 
     snake = {
         init_len: 4,
@@ -11,14 +11,14 @@ function init(){
         direction: "right",
 
         createSnake: function(){
-            for (var i = this.init_len; i<0; i--){
+            for (var i = this.init_len; i>0; i--){
                 this.cells.push({x:i, y:0});
             }
         },
 
         drawSnake: function(){
             for(var i=0; i<this.cells.length; i++){
-                pen.fillRect(this.cells[i].x, this.cells[i].y, cell_size, cell_size);
+                pen.fillRect(this.cells[i].x*cell_size, this.cells[i].y*cell_size, cell_size-2, cell_size-2);
             }
         }
     };

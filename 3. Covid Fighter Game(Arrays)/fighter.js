@@ -1,4 +1,7 @@
-function load_img(){}
+function load_img(){
+    enemy_img = new Image();
+    enemy_img.src = "Assets/v2.png";
+}
 
 function init(){
     canvas = document.getElementById("mycanvas");
@@ -8,28 +11,47 @@ function init(){
     // To draw on canvas
     pen = canvas.getContext("2d");
 
-    box = {
-        x: 150,
-        y: 50,
-        w: 60,
-        h: 60,
-        speed : 20
-    };
+    e1 = {
+		x : 150,
+		y : 50,
+		w : 60,
+		h : 60,
+		speed : 20,
+	};
+	e2 = {
+		x : 300,
+		y : 150,
+		w : 60,
+		h : 60,
+		speed : 30,
+	};
+	e3 = {
+		x : 450,
+		y : 20,
+		w : 60,
+		h : 60,
+		speed : 40,
+	};
+    
+    enemy = [e1,e2,e3];
 }
 
 function draw(){
     // To erase previous frame
     pen.clearRect(0, 0, W, H);
 
-    pen.fillStyle = "red";
-    pen.fillRect(box.x, box.y, box.w, box.h);
+    for (var i = 0; i < enemy.length; i++){
+        pen.drawImage(enemy_img, enemy[i].x, enemy[i].y, enemy[i].w, enemy[i].h);
+    }
 }
 
 function update(){
-    box.y += box.speed;
+    for (var i = 0; i < enemy.length; i++){
+        enemy[i].y += enemy[i].speed;
 
-    if (( box.y >= (H-box.h) ) || ( box.y < 0 )){
-        box.speed *= -1;
+        if (( enemy[i].y >= (H-enemy[i].h) ) || ( enemy[i].y < 0 )){
+            enemy[i].speed *= -1;
+        }
     }
 }
 

@@ -63,10 +63,12 @@ function init(){
 		h : 60,
     };
     
+    // When we click the mouse
     canvas.addEventListener("mousedown", function(){
         player.moving = true;
     })
 
+    // When we release our click from the mouse
     canvas.addEventListener("mouseup", function(){
         player.moving = false;
     })
@@ -88,6 +90,7 @@ function draw(){
     // To erase previous frame
     pen.clearRect(0, 0, W, H);
 
+    // To display all enemies
     for (var i = 0; i < enemy.length; i++){
         pen.drawImage(enemy_img, enemy[i].x, enemy[i].y, enemy[i].w, enemy[i].h);
     }
@@ -114,6 +117,7 @@ function update(){
         player.x += player.speed;
     }
 
+    // Check if player collides with enemy
     for(let i=0;i<enemy.length;i++){
         if(isOverlap(enemy[i],player)){
             player.health -= 50;
@@ -124,8 +128,6 @@ function update(){
             }
         }
     }
-    
-   
     
     //overlap overlap
     if(isOverlap(player,gem)){

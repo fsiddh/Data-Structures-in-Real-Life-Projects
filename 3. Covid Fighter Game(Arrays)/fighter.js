@@ -1,6 +1,16 @@
 function load_img(){
+    // Enemy Image
     enemy_img = new Image();
     enemy_img.src = "Assets/v2.png";
+
+    // Player Image
+    player_img = new Image();
+    player_img.src = "Assets/superhero.png";
+
+    // Gem Image
+    gem_img = new Image();
+    gem_img.src = "Assets/gem.png";
+
 }
 
 function init(){
@@ -34,6 +44,23 @@ function init(){
 	};
     
     enemy = [e1,e2,e3];
+
+    player = {
+		x : 20,
+		y : H/2,
+		w : 60,
+		h : 60,
+		speed : 20,
+        moving  : false,
+        health : 100,
+	};
+    
+	gem = {
+		x : W-100,
+		y : H/2,
+		w : 60,
+		h : 60,
+	};
 }
 
 function draw(){
@@ -43,6 +70,10 @@ function draw(){
     for (var i = 0; i < enemy.length; i++){
         pen.drawImage(enemy_img, enemy[i].x, enemy[i].y, enemy[i].w, enemy[i].h);
     }
+
+    pen.drawImage(player_img, player.x, player.y, player.w, player.h);
+
+    pen.drawImage(gem_img, gem.x, gem.y, gem.w, gem.h);
 }
 
 function update(){

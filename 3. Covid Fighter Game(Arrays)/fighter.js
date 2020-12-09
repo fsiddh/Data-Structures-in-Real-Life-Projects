@@ -60,7 +60,15 @@ function init(){
 		y : H/2,
 		w : 60,
 		h : 60,
-	};
+    };
+    
+    canvas.addEventListener("mousedown", function(){
+        player.moving = true;
+    })
+
+    canvas.addEventListener("mouseup", function(){
+        player.moving = false;
+    })
 }
 
 function draw(){
@@ -77,6 +85,11 @@ function draw(){
 }
 
 function update(){
+
+    if (player.moving == true){
+        player.x += player.speed;
+    }
+
     for (var i = 0; i < enemy.length; i++){
         enemy[i].y += enemy[i].speed;
 

@@ -65,12 +65,21 @@ function update(){
 }
 
 function spinwheel(){
-    this.game_text.setText("Helo guys, chai pee lo")
+    
+    console.log("You clicked the mouse");
+    console.log("Start spinning");
+    //this.game_text.setText("You clicked the mouse!");
+    
+    let rounds = Phaser.Math.Between(2,4);
+    let degrees = Phaser.Math.Between(0,11)*30; // Take evry prize ke beech me ruke
+    
+    let total_angle = rounds*360 + degrees;
+    console.log(total_angle);
 
     tween = this.tweens.add({
         targets: this.wheel,
-        angle: Math.random()*10000,
+        angle: total_angle,
         ease: "Cubic.easeOut",
-        duration: 3000,
+        duration: 6000,
     });
 }

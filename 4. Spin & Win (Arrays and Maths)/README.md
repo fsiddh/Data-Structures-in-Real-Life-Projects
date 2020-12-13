@@ -1,6 +1,6 @@
 ### Preview:
-<h4> In this game I implemented <u>arrays</u> ds and used some mathematical concepts. <br><br>
-To build this game I used the <u>'Phaser'</u> Framework.<br><br>
+<h4> In this game I implemented arrays ds and used some mathematical concepts. <br><br>
+To build this game I used the <b>'Phaser'</b> Framework.<br><br>
 <u>Logics</u> and <u>Concepts</u> implemented in this game:<br></h4>
 <ul>
   <li> GameLoop in Phraser</li>

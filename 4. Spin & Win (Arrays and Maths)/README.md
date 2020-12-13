@@ -3,7 +3,7 @@
 To build this game I used the <b>'Phaser'</b> Framework.<br><br>
 <b>Logics</b> and <b>Concepts</b> implemented in this game:<br></p>
 <ul>
-  <li> GameLoop in Phraser</li>
+  <li> GameLoop in Phaser</li>
   <li> Adding Images</li>
   <li> Animations </li>
   <li> Arrays </li>

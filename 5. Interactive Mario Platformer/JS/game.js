@@ -38,6 +38,7 @@ function preload(){
     this.load.image("ground", "../Assets/grass.png");
     this.load.image("sky", "../Assets/background.png");
     this.load.image("apple", "../Assets/apple.png");
+    this.load.image("ray", "../Assets/ray.png");
 
     this.load.spritesheet("dude", "../Assets/dude.png", {frameWidth: 32, frameHeight: 48});
 }
@@ -47,14 +48,40 @@ function create(){
     H = game.config.height;
 
     //To create a background
-    let sky = this.add.sprite(0, 0, "sky");
-    sky.setOrigin(0, 0);
-    sky.height = H;
-    sky.displayWidth = W;
-
+    let background = this.add.sprite(0,0,'sky');
+    background.setOrigin(0,0);
+    background.displayWidth = W; // To update Width of background
+    background.displayHeight = H; // To update Height of background
+    background.depth = -2;
+    
     //add tilesprites
     let ground = this.add.tileSprite(0, H-128, W, 128, "ground");
     ground.setOrigin(0,0);
+
+    // Create rays on top of the Background
+    let rays = [];
+
+    for (let i = -10; i <= 10; i++){
+        let ray = this.add.sprite(W/2, H-100, "ray");
+        ray.displayHeight = 1.2*H;
+        ray.setOrigin(0.5, 1);
+        ray.alpha = 0.2;
+        ray.angle = i*20;
+        ray.depth = -1;
+        rays.push(ray);
+    }
+
+    // Sunlight Effect Tween
+    this.tweens.add({
+        targets: rays,
+        props: {
+            angle: {
+                value : "+= 200",
+            },
+        },
+        duration: 8000,
+        repeat: -1,
+    });
 
     //Add the fruits
     let fruits = this.physics.add.group({

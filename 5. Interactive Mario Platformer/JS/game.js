@@ -26,6 +26,12 @@ let config = {
     }
 };
 
+// Player skills
+let player_config = {
+    player_speed: 150,
+    player_jumpspeed: -700,
+}
+
 let game = new Phaser.Game(config);
 
 function preload(){
@@ -71,7 +77,7 @@ function create(){
 
     // Handling all Collisions
     this.physics.add.collider(platforms, fruits);
-    this.physics.add.collider(ground, this.player);
+    this.physics.add.collider(platforms, this.player);
 
     // Adding Bouncing Effect on PLayer and Apples
     this.player.setBounce(0.2);
@@ -80,6 +86,29 @@ function create(){
         f.setBounce(Phaser.Math.FloatBetween(0.4, 0.7));
     })
 
+    // Player Animation and Player Movements
+    
+
+    // cursor obj will store which key is pressed,
+    // and then in update function we'll check which key is pressed,
+    // and the move in the resp. direction
+    this.cursor = this.input.keyboard.createCursorKeys();
+
 }
 
-function update(){}
+function update(){
+    // When pressed left, righ or up key do player movement in resp. directions
+    if (this.cursor.left.isDown){
+        this.player.setVelocityX(-player_config.player_speed);
+    }
+    else if (this.cursor.right.isDown){
+        this.player.setVelocityX(player_config.player_speed);
+    }
+    else{
+        this.player.setVelocityX(0);
+    }
+
+    if (this.cursor.up.isDown && this.player.body.touching.down){
+        this.player.setVelocityY(player_config.player_jumpspeed);
+    }
+}

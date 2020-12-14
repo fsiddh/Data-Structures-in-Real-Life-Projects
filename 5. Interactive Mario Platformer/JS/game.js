@@ -21,15 +21,15 @@ let config = {
             gravity: {
                 y: 1000,
             },
-            debug: true,
+            debug: false,
         }
     }
 };
 
 // Player skills
 let player_config = {
-    player_speed: 150,
-    player_jumpspeed: -700,
+    player_speed: 300,
+    player_jumpspeed: -650,
 }
 
 let game = new Phaser.Game(config);
@@ -67,6 +67,7 @@ function create(){
     // Add our player with Physics concepts
     this.player = this.physics.add.sprite(100, 100, "dude", 4);
     this.physics.add.existing(ground, true);
+    this.player.setCollideWorldBounds(true);
     
     // Add the platforms and include "ground" in platforms container
     let platforms = this.physics.add.staticGroup();
@@ -114,6 +115,12 @@ function create(){
     // OVERLAP: When player eats/overlaps the fruits
     this.physics.add.overlap(this.player, fruits, eatFruit, null, this);
 
+    // Create Camera: To just focus a part on our frame. And that part moves with our player
+    this.cameras.main.setBounds(0, 0, W, H);
+    this.physics.world.setBounds(0, 0, W, H);
+
+    this.cameras.main.startFollow(this.player, true, true);
+    this.cameras.main.setZoom(1.5);
 }
 
 function update(){

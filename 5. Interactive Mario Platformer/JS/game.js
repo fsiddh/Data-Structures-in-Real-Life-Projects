@@ -87,7 +87,24 @@ function create(){
     })
 
     // Player Animation and Player Movements
-    
+    this.anims.create({
+        key: "left",
+        frames: this.anims.generateFrameNumbers("dude", {start: 0, end: 3}),
+        frameRate: 10,
+        repeat: -1,
+    });
+    this.anims.create({
+        key: "center",
+        frames: this.anims.generateFrameNumbers("dude", {start: 4, end: 4}),
+        frameRate: 10,
+        repeat: -1,
+    });
+    this.anims.create({
+        key: "right",
+        frames: this.anims.generateFrameNumbers("dude", {start: 5, end: 8}),
+        frameRate: 10,
+        repeat: -1,
+    });
 
     // cursor obj will store which key is pressed,
     // and then in update function we'll check which key is pressed,
@@ -100,12 +117,15 @@ function update(){
     // When pressed left, righ or up key do player movement in resp. directions
     if (this.cursor.left.isDown){
         this.player.setVelocityX(-player_config.player_speed);
+        this.player.anims.play("left", true);
     }
     else if (this.cursor.right.isDown){
         this.player.setVelocityX(player_config.player_speed);
+        this.player.anims.play("right", true);
     }
     else{
         this.player.setVelocityX(0);
+        this.player.anims.play("center", true);
     }
 
     if (this.cursor.up.isDown && this.player.body.touching.down){

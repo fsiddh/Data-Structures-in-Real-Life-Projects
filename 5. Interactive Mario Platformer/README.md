@@ -4,12 +4,12 @@ To build this game we used the <b>'Phaser'</b> Framework.<br><br>
 <b>Logics</b> and <b>Concepts</b> implemented in this game:<br></p>
 <ul>
   <li> Physics Concepts</li>
-  <ul>
+  <ol>
     <li>Jump</li>
     <li>Bounce</li>
     <li>Gravity</li>
     <li>Speed</li>
-  </ul>
+  </ol>
   <li> How to use Keyboard for activity</li>
   <li> Animations </li>
   <li> Tweens(For moving sunrays effect in background using Arrays ds) </li>

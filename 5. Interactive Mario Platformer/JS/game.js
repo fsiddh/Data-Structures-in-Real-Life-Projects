@@ -20,7 +20,8 @@ let config = {
         arcade: {
             gravity: {
                 y: 1000,
-            }
+            },
+            debug: true,
         }
     }
 };
@@ -56,13 +57,22 @@ function create(){
         setScale: {x: 0.2, y: 0.2},
         setXY: {x: 10, y: 0, stepX: 100},
     })
-    this.physics.add.collider(ground, fruits);
 
     // Add our player with Physics concepts
     this.player = this.physics.add.sprite(100, 100, "dude", 4);
     this.physics.add.existing(ground, true);
-    this.physics.add.collider(ground, this.player);
     
+    // Add the platforms and include "ground" in platforms container
+    let platforms = this.physics.add.staticGroup();
+    platforms.create(500, 400, "ground").setScale(2, 0.5).refreshBody();
+    platforms.create(700, 200, "ground").setScale(2, 0.5).refreshBody();
+    platforms.create(150, 200, "ground").setScale(2, 0.5).refreshBody();
+    platforms.add(ground);
+
+    // Handling all Collisions
+    this.physics.add.collider(platforms, fruits);
+    this.physics.add.collider(ground, this.player);
+
     // Adding Bouncing Effect on PLayer and Apples
     this.player.setBounce(0.2);
 

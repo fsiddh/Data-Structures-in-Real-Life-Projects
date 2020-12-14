@@ -111,6 +111,9 @@ function create(){
     // and the move in the resp. direction
     this.cursor = this.input.keyboard.createCursorKeys();
 
+    // OVERLAP: When player eats/overlaps the fruits
+    this.physics.add.overlap(this.player, fruits, eatFruit, null, this);
+
 }
 
 function update(){
@@ -131,4 +134,8 @@ function update(){
     if (this.cursor.up.isDown && this.player.body.touching.down){
         this.player.setVelocityY(player_config.player_jumpspeed);
     }
+}
+
+function eatFruit(player, fruit){
+    fruit.disableBody(true, true);
 }

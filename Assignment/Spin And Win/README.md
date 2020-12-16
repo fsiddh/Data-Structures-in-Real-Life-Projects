@@ -12,7 +12,7 @@ To build this game we used the <b>'Phaser'</b> Framework.<br><br>
   <li> OOPs </li>
 </ul>
 
-<p>Here are some improvements to the game that you will build as a part of the assignment.
+<p><b>Here are some improvements to the game that you will build as a part of the assignment.<b>
 
 Disable Spin
 

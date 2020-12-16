@@ -55,11 +55,6 @@ function create(){
     }
     this.textbutton = this.add.text(W-200, H-50, "Tap to Spin", button_font_style);
     this.textbutton.setInteractive();
-
-    this.button = this.add.sprite(W-140, H-125, "button");
-    this.button.setScale(0.15);
-    this.button.setOrigin(0,0);
-    this.button.setInteractive();
     
      //lets create the stand
     let stand = this.add.sprite(W/2,H/2 + 250,'stand');
@@ -76,7 +71,7 @@ function create(){
 
     //event listener for mouse click
     this.isSpinning = false;
-    this.button.on('pointerdown', () => {
+    this.textbutton.on('pointerdown', () => {
         this.input.on("pointerdown", spinwheel, this);
     });
     
@@ -98,42 +93,7 @@ function update(){
 }
 
 function spinwheel(){
-    this.button.on('pointerdown', () => { // Button pe click karo then only it'll spin
-        if (this.isSpinning == false){ // To disable spin while already spinning
-            
-            // Audio
-            var music = this.sound.add("theme");
-            music.play();
-           
-            // So that wheel would'nt spin again
-            this.isSpinning = true;
 
-            console.log("You clicked the mouse");
-            console.log("Start spinning");
-            //this.game_text.setText("You clicked the mouse!");
-            
-            let rounds = Phaser.Math.Between(2,4);
-            let degrees = Phaser.Math.Between(0,11)*30; // Take evry prize ke beech me ruke
-            
-            let total_angle = rounds*360 + degrees;
-            console.log(total_angle);
-
-            let idx = prizes_config.count - 1 - Math.floor(degrees/(360/prizes_config.count));
-
-            tween = this.tweens.add({
-                targets: this.wheel,
-                angle: total_angle,
-                ease: "Cubic.easeOut",
-                duration: 6000,
-                callbackScope:this,
-                onComplete:function(){
-                    this.game_text.setText("You Won: " + prizes_config.prize_names[idx]);
-                    this.isSpinning = false; // To spin again
-                    music.stop(); // To stop music
-                },
-            });
-        }
-    });
     this.textbutton.on('pointerdown', () => { // Button pe click karo then only it'll spin
         if (this.isSpinning == false){ // To disable spin while already spinning
             

@@ -28,6 +28,7 @@ function preload(){
     this.load.image('wheel','../Assets/wheel.png');
     this.load.image('pin','../Assets/pin.png');
     this.load.image('stand','../Assets/stand.png');
+    this.load.image('button','../Assets/button.png');
 }
 
 function create(){
@@ -39,6 +40,12 @@ function create(){
     let background = this.add.sprite(0,0,'background');
     background.setPosition(W/2,H/2);
     background.setScale(0.20);
+
+    // Creating a button for the spin
+    this.button = this.add.sprite(W-100, H-100, "button");
+    this.button.setScale(0.15);
+    this.button.setOrigin(0,0);
+    this.button.setInteractive();
     
      //lets create the stand
     let stand = this.add.sprite(W/2,H/2 + 250,'stand');
@@ -54,7 +61,11 @@ function create(){
     this.wheel.setScale(0.25);  
 
     //event listener for mouse click
-    this.input.on("pointerdown", spinwheel, this);
+    this.isSpinning = false;
+    this.button.on('pointerdown', () => {
+        this.input.on("pointerdown", spinwheel, this);
+    });
+    
 
     //lets create text object
     font_style = {
@@ -73,27 +84,32 @@ function update(){
 }
 
 function spinwheel(){
-    
-    console.log("You clicked the mouse");
-    console.log("Start spinning");
-    //this.game_text.setText("You clicked the mouse!");
-    
-    let rounds = Phaser.Math.Between(2,4);
-    let degrees = Phaser.Math.Between(0,11)*30; // Take evry prize ke beech me ruke
-    
-    let total_angle = rounds*360 + degrees;
-    console.log(total_angle);
+    this.button.on('pointerdown', () => {
+        if (this.isSpinning == false){
+            this.isSpinning = true;
+            console.log("You clicked the mouse");
+            console.log("Start spinning");
+            //this.game_text.setText("You clicked the mouse!");
+            
+            let rounds = Phaser.Math.Between(2,4);
+            let degrees = Phaser.Math.Between(0,11)*30; // Take evry prize ke beech me ruke
+            
+            let total_angle = rounds*360 + degrees;
+            console.log(total_angle);
 
-    let idx = prizes_config.count - 1 - Math.floor(degrees/(360/prizes_config.count));
+            let idx = prizes_config.count - 1 - Math.floor(degrees/(360/prizes_config.count));
 
-    tween = this.tweens.add({
-        targets: this.wheel,
-        angle: total_angle,
-        ease: "Cubic.easeOut",
-        duration: 6000,
-        callbackScope:this,
-        onComplete:function(){
-            this.game_text.setText("You Won: " + prizes_config.prize_names[idx]);
-        },
+            tween = this.tweens.add({
+                targets: this.wheel,
+                angle: total_angle,
+                ease: "Cubic.easeOut",
+                duration: 6000,
+                callbackScope:this,
+                onComplete:function(){
+                    this.game_text.setText("You Won: " + prizes_config.prize_names[idx]);
+                    this.isSpinning = false;
+                },
+            });
+        }
     });
 }

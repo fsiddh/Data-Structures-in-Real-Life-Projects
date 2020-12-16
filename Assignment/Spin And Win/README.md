@@ -29,8 +29,8 @@ Add Music
 Add New Feature
 
 4) Add any 1 new feature of your choice to make the game more engaging and attractive.
-
-One you are done with the code, submit the project details [Mandatory to claim your certificate]
 </p>
+
 ###### This is how the game looks.
+
 <img src="saw.PNG" alt="Trulli" width="700" height="500"><br><br><br>

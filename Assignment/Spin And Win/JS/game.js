@@ -15,6 +15,9 @@ let config = {
         preload: preload,
         create: create,
         update: update,
+    },
+    audio: {
+        disableWebAudio: false,
     }
 };
 
@@ -29,6 +32,9 @@ function preload(){
     this.load.image('pin','../Assets/pin.png');
     this.load.image('stand','../Assets/stand.png');
     this.load.image('button','../Assets/button.png');
+
+    // For Audio
+    this.load.audio('theme', 'assets/oedipus_wizball_highscore.mp3');
 }
 
 function create(){
@@ -36,15 +42,21 @@ function create(){
     //create the background image
     let W = game.config.width;
     let H = game.config.height;
-    
+
     let background = this.add.sprite(0,0,'background');
     background.setPosition(W/2,H/2);
     background.setScale(0.20);
 
     // Creating a button for the spin
-    this.button = this.add.sprite(W-100, H-100, "button");
-    this.button.setScale(0.15);
-    this.button.setOrigin(0,0);
+    //this.button = this.add.sprite(W-100, H-100, "button");
+    button_font_style = {
+        font: "bold 35px Arial",
+        align: "center",
+        color: "red",
+    }
+    this.button = this.add.text(W-200, H-50, "Tap to Spin", button_font_style);
+    //this.button.setScale(0.15);
+    //this.button.setOrigin(0,0);
     this.button.setInteractive();
     
      //lets create the stand
@@ -84,9 +96,16 @@ function update(){
 }
 
 function spinwheel(){
-    this.button.on('pointerdown', () => {
-        if (this.isSpinning == false){
+    this.button.on('pointerdown', () => { // Button pe click karo then only it'll spin
+        if (this.isSpinning == false){ // To disable spin while already spinning
+            
+            // Audio
+            var music = this.sound.add("theme");
+            music.play();
+           
+            // So that wheel would'nt spin again
             this.isSpinning = true;
+
             console.log("You clicked the mouse");
             console.log("Start spinning");
             //this.game_text.setText("You clicked the mouse!");
@@ -107,7 +126,8 @@ function spinwheel(){
                 callbackScope:this,
                 onComplete:function(){
                     this.game_text.setText("You Won: " + prizes_config.prize_names[idx]);
-                    this.isSpinning = false;
+                    this.isSpinning = false; // To spin again
+                    music.stop(); // To stop music
                 },
             });
         }

@@ -32,6 +32,7 @@ function preload(){
     this.load.image('pin','../Assets/pin.png');
     this.load.image('stand','../Assets/stand.png');
     this.load.image('button','../Assets/button.png');
+    this.load.image("ray", "../Assets/ray.png");
 
     // For Audio
     this.load.audio('theme', 'assets/oedipus_wizball_highscore.mp3');
@@ -46,6 +47,30 @@ function create(){
     let background = this.add.sprite(0,0,'background');
     background.setPosition(W/2,H/2);
     background.setScale(0.20);
+
+    // Create rays on top of the Background
+    let rays = [];
+
+    for (let i = -10; i <= 10; i++){
+        let ray = this.add.sprite(W/2, H-300, "ray");
+        ray.displayHeight = 1.2*H;
+        ray.setOrigin(0.5, 1);
+        ray.alpha = 0.2;
+        ray.angle = i*20;
+        rays.push(ray);
+    }
+
+    // Sunlight Effect Tween
+    this.tweens.add({
+        targets: rays,
+        props: {
+            angle: {
+                value : "+= 200",
+            },
+        },
+        duration: 4000,
+        repeat: -1,
+    });
 
     // Creating a button for the spin
     button_font_style = {

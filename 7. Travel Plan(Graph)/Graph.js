@@ -6,8 +6,8 @@ function createGraph(V, E){
     }
 
     for (let i=0; i<E.length; i++){
-        adjacency_list[ E[i][0] ].push( E[i][1], E[i][2] );
-        adjacency_list[ E[i][1] ].push( E[i][0], E[i][2] );
+        adjacency_list[ E[i][0] ].push( [E[i][1], E[i][2]] );
+        adjacency_list[ E[i][1] ].push( [E[i][0], E[i][2]] );
     }
 
     return adjacency_list;

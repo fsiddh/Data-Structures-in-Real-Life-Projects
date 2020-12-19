@@ -1,0 +1,15 @@
+html,
+body {
+    height: 100%;
+}
+
+#container {
+    width: 100%;
+    height: 500px;
+    border: 1px solid lightgray;
+}
+
+#generate-graph{
+    margin:auto;
+    display:block;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>CB Chat List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/5548f5ed00.js" crossorigin="anonymous"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <nav class="navbar navbar-light " style="font-size: 25px; font-family: sans-serif; background-color: whitesmoke;">
+
+        
+        Chatlist Project
+
+    </nav>
+    <div id="container">
+        <div class="container2">
+            <div class="ks-messenger">
+                <div class="ks-discussions">
+                    <div class="ks-header">
+                <span class="col-4" style="text-align: center">
+                    <i class="fas fa-comments" style="color: dodgerblue"></i>
+                </span>
+                        <span class="col-4" style="text-align: center">
+                    <i class="fas fa-video" style="color: dodgerblue"></i>
+                </span>
+                        <span class="col-4" style="text-align: center">
+                    <i class="fas fa-stream" style="color: dodgerblue"></i>
+                </span>
+                    </div>
+                    <div class="ks-body ks-scrollable jspScrollable" data-auto-height="" style="height: 400px; overflow-y: auto; padding: 0px; width: 339px;" tabindex="0">
+
+                        <div class="jspContainer">
+                            <div class="jspPane" style="padding: 0px; top: 0px; width: 339px;">
+                                <ul class="ks-items" id="chat-list">
+
+                                </ul>
+                            </div>
+                            <div class="jspVerticalBar">
+                                <div class="jspCap jspCapTop"></div>
+                                <div class="jspTrack" style="height: 100px;">
+                                    <div class="jspDrag">
+                                        <div class="jspDragTop"></div>
+                                        <div class="jspDragBottom"></div>
+                                    </div>
+                                </div>
+                                <div class="jspCap jspCapBottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container2" style="overflow-y: scroll; height: 500px; padding-top: 40px">
+            <span id="temptext" style="height: 100%; width: 100%; text-align: center; font-size: x-large">
+                Click on generate new step to get updates !!
+            </span>
+        </div>
+    </div>
+
+    <div class="container3">
+        <br>
+        <button type="button" class="btn btn-danger" id="generate-step" style="margin: auto">Generate new step</button>
+    </div>
+
+    <template>
+        <li class="ks-item" id="ChatListItem">
+            <a href="#">
+            <span class="ks-avatar">
+                <img src="./images/avatar1.png" width="36" height="36" id="Image"></img>
+            </span>
+                <div class="ks-body">
+                    <div class="ks-name">
+                        <span id="Name">Eric George</span>
+                        <span id="Time" class="ks-datetime">just now</span>
+                    </div>
+                    <div class="ks-message" id="Message">Why didn't he come and talk to me himse...</div>
+                </div>
+            </a>
+        </li>
+    </template>
+</body>
+</html>

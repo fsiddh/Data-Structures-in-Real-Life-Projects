@@ -1,0 +1,192 @@
+body{
+    background:#ddd;
+    height: 100%;
+}
+
+#container{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.container2 {
+    width: 50%;
+    height: 100%;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.container3 {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.ks-messenger {
+    margin: auto;
+    margin-top: 50px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-block;
+    height: 100%;
+}
+
+.ks-messenger .ks-discussions {
+    border-radius: 5px 5px 5px 5px;
+    background: #fff;
+    width: 340px;
+    border-right: 1px solid #dee0e1
+}
+
+.ks-messenger .ks-discussions>.ks-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 60px;
+    border-bottom: 1px solid #dee0e1
+}
+
+.ks-messenger .ks-discussions>.ks-search .form-control {
+    border: none;
+    padding: 28px 20px
+}
+
+.ks-messenger .ks-discussions>.ks-search .icon-addon {
+    color: rgba(58, 82, 155, .6)
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item {
+    border-bottom: 1px solid #dee0e1
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #333;
+    padding: 15px 20px
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-group-amount {
+    position: relative;
+    top: 3px;
+    margin-right: 12px;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(57, 81, 155, .1);
+    text-align: center;
+    line-height: 36px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-group-amount>.ks-badge {
+    position: absolute;
+    bottom: -1px;
+    right: -3px
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-avatar {
+    position: relative;
+    top: 3px;
+    margin-right: 12px
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-avatar>img {
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-avatar>.ks-badge {
+    position: absolute;
+    bottom: -3px;
+    right: -3px
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-message {
+    font-size: 12px;
+    color: #858585;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-message>img {
+    position: relative;
+    top: -2px;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-name {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    margin-bottom: 4px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item>a>.ks-body>.ks-name>.ks-datetime {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 400;
+    color: #858585;
+    position: relative;
+    top: 3px
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item.ks-active {
+    background: rgba(247, 202, 24, .1);
+    color: #333;
+    position: relative
+}
+
+.ks-messenger .ks-discussions>.ks-body .ks-items>.ks-item.ks-active::before {
+    content: '';
+    width: 4px;
+    height: 100%;
+    background-color: rgba(222, 187, 12, .2);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0
+}

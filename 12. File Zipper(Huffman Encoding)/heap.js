@@ -1,18 +1,14 @@
-/**
- * Created by aarnavjindal on 30/03/20.
- */
-
-export { BinaryHeap }
+export { BinaryHeap }//will be received by huffman.js
 
 class BinaryHeap {
 
     constructor() {
-        this.heap = [];
+        this.heap = []; //array
     }
 
-    insert(value) {
-        this.heap.push(value);
-        this.bubbleUp();
+    insert(value) {//function to insert values in heap array
+        this.heap.push(value);//pushed value in heap array
+        this.bubbleUp();//called function heapify to manage heap(max node as parent)
     }
 
     size() {
@@ -24,7 +20,7 @@ class BinaryHeap {
     }
 
     //using iterative approach
-    bubbleUp() {
+    bubbleUp() {//heapify
         let index = this.size() - 1;
 
         while (index > 0) {
@@ -40,7 +36,7 @@ class BinaryHeap {
     }
 
     extractMax() {
-        const max = this.heap[0];
+        const max = this.heap[0];//root node
         const tmp = this.heap.pop();
         if(!this.empty()) {
             this.heap[0] = tmp;

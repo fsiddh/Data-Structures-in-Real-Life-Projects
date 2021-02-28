@@ -3,6 +3,12 @@ body {
     height: 100%;
 }
 
+p{
+    font-family:'Brush Script MT';
+    font-size :15mm;
+    font-weight: bold;
+}
+
 .text_box {
     padding: 30px;
     width: 50%;

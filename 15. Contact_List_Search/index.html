@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <script src="Trie.js"></script>
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light " style="font-size: 25px; font-family: sans-serif; background-color: whitesmoke;">
+
+        <img src="" width="124" height="45"
+            class="d-inline-block align-top" alt="">
+        Auto-Complete Widget
+    </nav>
+    <div id="container">
+        <div class="text_box" style="display: flex">
+            <form autocomplete="off" style="margin: auto">
+                <h5>Type in the box below...</h5>
+                <br>
+                <div class="autocomplete" style="width:350px;">
+                    <input id="myInput" type="text" placeholder="Search Number...">
+                    <!--<a class="ks-items autocomplete-items" id="list"></a>-->
+                </div>
+                <input type="submit" value="Cancel">
+            </form>
+        </div>
+        <div class="text_box" style="overflow-y: scroll">
+            <span id="info">
+            </span>
+        </div>
+    </div>
+    <div class="center_input">
+        <input type="text" placeholder="Enter contact name, number" id="contact_input">
+        <button class="btn btn-success" id="add">Add Contact</button>
+    </div>
+    <div class="center_input">
+        <input type="text" placeholder="Enter contact number" id="delete_input">
+        <button class="btn btn-danger" id="del">Delete Contact</button>
+    </div>
+    <template>
+        <div class="list-group-item list-group-item-action" style="display: inline-flex">
+            <span class="ks-avatar" style="align-content: center">
+                <img src="./person.png" id="Image" style="margin: 10px; height: 40px; width: 40px">
+            </span>
+            <div>
+                <span id="Name">Eric George</span>
+                <br>
+                <span id="Number">just now</span>
+            </div>
+        </div>
+    </template>
+</body>
+</html>

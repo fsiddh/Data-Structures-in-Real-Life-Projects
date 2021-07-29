@@ -1,4 +1,8 @@
 ### Preview:
+
+
+https://user-images.githubusercontent.com/56497318/127526916-9572bdaf-db36-44c0-a616-88414770c0d6.mp4
+
 <p> In this game we implemented <b>arrays</b> ds.<br><br>
 To build this game we used the <b>'Phaser'</b> Framework.<br><br>
 <b>Logics</b> and <b>Concepts</b> implemented in this game:<br></p>
@@ -17,6 +21,3 @@ To build this game we used the <b>'Phaser'</b> Framework.<br><br>
   <li> Dynamic and Static group logic</li>
   <li> Collision and Overlap logic</li>
 </ul>
-    
-###### This is how the game looks.
-<img src="interactive_basicMario.PNG" alt="Trulli" width="700" height="500"><br><br><br>

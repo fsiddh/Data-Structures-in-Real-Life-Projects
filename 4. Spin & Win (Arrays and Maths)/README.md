@@ -15,5 +15,4 @@ To build this game we used the <b>'Phaser'</b> Framework.<br><br>
   <li> OOPs </li>
 </ul>
     
-###### This is how the game looks.
-<img src="saw.PNG" alt="Trulli" width="700" height="500"><br><br><br>
+
